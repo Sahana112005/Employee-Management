@@ -109,14 +109,6 @@ npm install
 npm run dev
 ```
 
-## Screenshots
-
-### Dashboard
-(Add dashboard screenshot here)
-
-### Department Chart
-(Add chart screenshot here)
-
 ## Future Enhancements
 
 - Attendance Management
