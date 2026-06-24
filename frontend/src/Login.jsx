@@ -1,27 +1,19 @@
 import { useState } from "react";
-import axios from "axios";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/login",
-        {
-          username,
-          password,
-        }
-      );
-
-      if (response.data.success) {
-        localStorage.setItem("loggedIn", "true");
-        onLogin();
-      }
-    } catch (error) {
+    if (
+      username === "admin" &&
+      password === "admin123"
+    ) {
+      localStorage.setItem("loggedIn", "true");
+      onLogin();
+    } else {
       alert("Invalid Username or Password");
     }
   };
@@ -39,9 +31,7 @@ function Login({ onLogin }) {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) =>
-              setUsername(e.target.value)
-            }
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
 
@@ -50,13 +40,12 @@ function Login({ onLogin }) {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
 
           <button
+            type="submit"
             className="bg-blue-600 text-white w-full p-3 rounded-lg hover:bg-blue-700"
           >
             Login
