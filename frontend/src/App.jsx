@@ -22,10 +22,10 @@ function App() {
     salary: "",
   });
 
-  const API_URL = "http://127.0.0.1:8000/employees";
+  const API_URL = "https://employee-management-backend-sahana.onrender.com";
 
   const getEmployees = async () => {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(`${API_URL}/employees`);
     setEmployees(response.data);
   };
 
