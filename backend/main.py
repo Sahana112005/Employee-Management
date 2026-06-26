@@ -16,10 +16,11 @@ app.add_middleware(
 
 def get_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="maglev.proxy.rlwy.net",
         user="root",
-        password="May2026",
-        database="employee_db"
+        password="yEAZlVkXBDRKbtNLIJUDoLgsRCJxPUOf",
+        database="railway",
+        port=24308
     )
 
 class Employee(BaseModel):
