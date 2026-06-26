@@ -4,10 +4,12 @@ from pydantic import BaseModel
 import mysql.connector
 
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://employee-management-inky-zeta.vercel.app"
+        "https://employee-management-inky-zeta.vercel.app",
+        "http://localhost:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -84,8 +86,8 @@ def add_employee(employee: Employee):
     cursor.execute(
         """
         INSERT INTO employees
-        (name,email,department,salary)
-        VALUES(%s,%s,%s,%s)
+        (name, email, department, salary)
+        VALUES (%s, %s, %s, %s)
         """,
         (
             employee.name,
