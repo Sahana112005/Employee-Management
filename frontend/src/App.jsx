@@ -58,11 +58,11 @@ function App() {
     };
 
     if (editingId) {
-      await axios.put(`${API_URL}/${editingId}`, employeeData);
+      await axios.put(`${API_URL}/employees/${editingId}`, employeeData);
       alert("Employee Updated Successfully!");
       setEditingId(null);
     } else {
-      await axios.post(API_URL, employeeData);
+      await axios.post(`${API_URL}/employees`, employeeData);
       alert("Employee Added Successfully!");
     }
 
@@ -93,7 +93,7 @@ function App() {
     );
 
     if (confirmDelete) {
-      await axios.delete(`${API_URL}/${id}`);
+      await axios.delete(`${API_URL}/employees/${id}`);
       alert("Employee Deleted Successfully!");
       getEmployees();
     }
